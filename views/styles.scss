@@ -8,6 +8,11 @@ body {
   font-size: 18px;
 }
 
+.wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
 a {
   text-decoration: none;
   border-bottom: 1px solid $light-gray;
@@ -19,21 +24,23 @@ a {
   }
 }
 
-h1 {
-  font-size: 35px;
-  margin-bottom: 0;
+hgroup {
 }
 
-.subtitle {
-  margin-top: 10px;
-}
-
-.hashtag {
-  font-size: 35px;
-  margin: 30px 0 50px;
+footer {
+  font-size: 14px;
 }
 
 .content {
-  max-width: 500px;
-  margin: 0 auto;
+  margin: 50px 0;
+}
+
+.subtitle {
+  margin: 5px 0;
+  color: $dark-gray;
+}
+
+h1 {
+  font-size: 35px;
+  margin-bottom: 0;
 }

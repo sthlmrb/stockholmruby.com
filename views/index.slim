@@ -7,14 +7,19 @@ html
     link href="http://fonts.googleapis.com/css?family=Lato:100,300" rel="stylesheet"
 
   body
-    .content
+    .wrapper
       hgroup
         h1 Stockholm Ruby User Group
         p.subtitle
           | (Formerly known as SHRUG.)
 
-      p.hashtag: a(href="https://twitter.com/search?q=%23sthlmrb") #sthlmrb
+      .content
+        p
+          ' Hashtag:
+          a(href="https://twitter.com/search?q=%23sthlmrb") #sthlmrb
 
-      p Hallå Stockholm hur är läget?!
+        p See <a href="http://www.meetup.com/SHRUGse/">our upcoming meetups at meetup.com</a>.
 
-      p See <a href="http://www.meetup.com/SHRUGse/">our upcoming meetups at meetup.com</a>.
+      footer
+        a href="https://github.com/sthlmrb/stockholmruby.com"
+          | Contribute to this site on GitHub.
