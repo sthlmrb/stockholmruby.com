@@ -1,0 +1,39 @@
+$red: #c00;
+$light-gray: #ddd;
+$dark-gray: #aaa;
+
+body {
+  padding: 20px 40px;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  border-bottom: 1px solid $light-gray;
+  &, &:visited {
+    color: $red;
+  }
+  &:hover {
+    border-color: $dark-gray;
+  }
+}
+
+hgroup {
+  margin-bottom: 50px;
+}
+
+h1 {
+  font-size: 35px;
+  margin-bottom: 0;
+}
+
+.hashtag {
+  margin-top: 10px;
+  font-size: 35px;
+}
+
+.content {
+  max-width: 500px;
+  margin: 0 auto;
+}
