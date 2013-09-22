@@ -12,7 +12,7 @@ To Heroku.
 
 Please help out!
 
-For repo access, ask [any repo member](https://github.com/sthlmrb?tab=members).
+For repo access, ask [any repo member](https://github.com/sthlmrb?tab=members). You can also fork and submit pull requests.
 
 For Heroku (deployment) access, ask [Henrik Nyh](http://henrik.nyh.se).
 
