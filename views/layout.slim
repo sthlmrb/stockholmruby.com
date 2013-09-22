@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    title= @title || "Stockholm Ruby"
+    link href="/styles.css" rel="stylesheet"
+    link href="http://fonts.googleapis.com/css?family=Lato:100,300" rel="stylesheet"
+
+  body
+    .wrapper
+
+      hgroup.site-title
+        p: a.image-link(href="/"): img.logo(src="/logo.png" alt="")
+        h1 Stockholm Ruby
+
+      nav
+        ul.menu
+          li: a(href="/") About
+          li: a(href="/organize") Organize
+
+      == yield
+
+      footer
+        p Stockholm Ruby was previously known as "SHRUG".
+        p
+          a href="https://github.com/sthlmrb/stockholmruby.com"
+            | Contribute to this site on GitHub.

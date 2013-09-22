@@ -9,3 +9,7 @@ end
 get "/" do
   slim :index
 end
+
+get "/organize" do
+  slim :organize
+end

@@ -22,10 +22,28 @@ a {
   &:hover {
     border-color: $dark-gray;
   }
+  &.image-link {
+    border-bottom: none;
+  }
 }
 
-hgroup {
+.site-title, nav {
   text-align: center;
+}
+
+nav {
+  text-transform: uppercase;
+  font-size: 16px;
+  margin: 20px 0;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    display: inline;
+    margin: 0 10px;
+  }
 }
 
 .logo {
@@ -36,6 +54,10 @@ h1 {
   font-size: 35px;
   margin-top: -20px;
   margin-bottom: 10px;
+}
+
+h3 {
+  margin-top: 30px;
 }
 
 .subtitle {
@@ -56,4 +78,12 @@ footer {
 
 section {
   margin: 50px 0;
+}
+
+.page-title {
+  margin: 50px 0 30px;
+}
+
+.page-title + section {
+  margin-top: 0;
 }

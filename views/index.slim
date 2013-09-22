@@ -1,139 +1,117 @@
-doctype html
-html
-  head
-    meta charset="utf-8"
-    title Stockholm Ruby
-    link href="/styles.css" rel="stylesheet"
-    link href="http://fonts.googleapis.com/css?family=Lato:100,300" rel="stylesheet"
+section
+  markdown:
+    The Stockholm Ruby user group arranges meetups where we program, learn from each other, network and socialize.
 
-  body
-    .wrapper
+    Everyone's welcome – locals and visitors alike – whether you are a professional Rubyist, a Ruby "nuby" taking your first steps, or you're just curious about programming.
 
-      hgroup
-        p: img.logo src="/logo.png" alt=""
-        h1 Stockholm Ruby
-        p.subtitle
-          | (formerly known as SHRUG)
+section
+  div#1363689120764
+  p <a href="http://www.meetup.com/sthlmrb/">See meetup.com</a> for more upcoming meetups, as well as past ones.
 
-      section
-        markdown:
-          The Stockholm Ruby user group arranges meetups where we program, learn from each other, network and socialize.
+erb:
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-          Everyone's welcome – locals and visitors alike – whether you are a professional Rubyist, a Ruby "nuby" taking your first steps, or you're just curious about programming.
+  <script>
+    jQuery.noConflict();
+    jQuery(function() {
+      var scripts = [
+      ];
 
-      section
-        div#1363689120764
-        p <a href="http://www.meetup.com/sthlmrb/">See meetup.com</a> for more upcoming meetups, as well as past ones.
+      jQuery("#1363689120764").append('<div class="mug-badge"></div>');
 
-      erb:
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      var mup_widget = {
+        with_jquery: function(block) {
+          block(jQuery, document.getElementById("1363689120764"))
+        }
+      };
 
-        <script>
-          jQuery.noConflict();
-          jQuery(function() {
-            var scripts = [
-            ];
+      var $parameters = {"urlname":"SHRUGse","width":"100%","height":"500","_name":"Meetup Group Stats","_description":""};
+      var $queries = {
+        groups: function() { return "http://api.meetup.com/groups?_=1363689120234&radius=25.0&order=ctime&group_urlname=SHRUGse&offset=0&callback=?&format=json&page=200&fields=&sig_id=10723355&sig=72f77253dedf5f6d022aa2038f70626e7bc58835&user_agent=meetup.widget:mug_stats"; },
+        events: function() { return "http://api.meetup.com/events?_=1363689120235&radius=25.0&order=time&group_urlname=SHRUGse&offset=0&callback=?&format=json&page=1&fields=&sig_id=10723355&sig=74585a335f2976a6627d77a285e78316a3282ab2&user_agent=meetup.widget:mug_stats"; }
+      };
 
-            jQuery("#1363689120764").append('<div class="mug-badge"></div>');
 
-            var mup_widget = {
-              with_jquery: function(block) {
-                block(jQuery, document.getElementById("1363689120764"))
+      mup_widget.with_jquery(function ($, ctx) {
+          var group = '',
+              months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+              addLink = function (content, link) {
+                  return '<a target="_top" href="' + link + '">' + content + '</a>';
+              },
+              addLeadingZero = function (num) {
+                  return (num < 10) ? ('0' + num) : num;
+              },
+              getFormattedDate = function (millis) {
+                  var date = new Date(millis);
+                  return months[date.getMonth()] + ' ' + addLeadingZero(date.getDate()) + ', ' + date.getFullYear().toString();
+              },
+              getFormattedTime = function (millis) {
+                  var time = new Date(millis),
+                      hours = time.getHours(),
+                      min = time.getMinutes(),
+                  min = addLeadingZero(min);
+                  return hours + ':' + min;
+              },
+              numberFormat = function (nStr) {
+                  nStr += '';
+                  x = nStr.split('.');
+                  x1 = x[0];
+                  x2 = x.length > 1 ? '.' + x[1] : '';
+                  var rgx = /(\d+)(\d{3})/;
+                  while (rgx.test(x1)) x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                  return x1 + x2;
+              };
+          $.getJSON($queries.groups(), function (data) {
+              if (data.results.length == 0) {
+                  $('.mug-badge', ctx).width($parameters.width);
+                  $('.mug-badge', ctx).append('<div class="mup-widget error">\
+             <div class="errorMsg">Oops. No results for "' + $parameters.urlname + '"</div>\
+           </div>');
+              } else {
+                  group = data.results[0];
+                  $('.mug-badge', ctx).width($parameters.width);
+                  $('.mug-badge', ctx).append('<div class="mup-widget">\
+           <div class="mup-bd">\
+             <span class="mup-stats"><div class="next-event"></div></span>\
+           </div>\
+           <div class="mup-ft">\
+         </div>\
+          </div>');
+                  $.getJSON($queries.events(), function (data) {
+                      if (data.status && data.status.match(/^200/) == null) {
+                          alert(data.status + ": " + data.details);
+                      } else {
+                          if (data.results.length == 0) {
+                              $('.next-event', ctx).append('<span class="mup-tlabel">' + addLink('Suggest new ideas for Meetups!', group.link) + '</span>');
+                          } else {
+                              var event = data.results[0];
+                              var venue;
+                              if (event.venue_name == "") {
+                                  if (event.venue_address1 == "") {
+                                      venue = "";
+                                  } else {
+                                      venue = event.venue_address1;
+                                  }
+                              } else {
+                                  venue = event.venue_name;
+                              }
+                              var location = venue;
+                              $('.next-event', ctx).append('<div class="mup-tlabel">The next event is ' + addLink(event.name, event.event_url) + " on " + getFormattedDate(parseInt(event.utc_time)) + ' at ' + getFormattedTime(parseInt(event.utc_time)) + ".</div>");
+                          }
+                      }
+                  });
               }
-            };
-
-            var $parameters = {"urlname":"SHRUGse","width":"100%","height":"500","_name":"Meetup Group Stats","_description":""};
-            var $queries = {
-              groups: function() { return "http://api.meetup.com/groups?_=1363689120234&radius=25.0&order=ctime&group_urlname=SHRUGse&offset=0&callback=?&format=json&page=200&fields=&sig_id=10723355&sig=72f77253dedf5f6d022aa2038f70626e7bc58835&user_agent=meetup.widget:mug_stats"; },
-              events: function() { return "http://api.meetup.com/events?_=1363689120235&radius=25.0&order=time&group_urlname=SHRUGse&offset=0&callback=?&format=json&page=1&fields=&sig_id=10723355&sig=74585a335f2976a6627d77a285e78316a3282ab2&user_agent=meetup.widget:mug_stats"; }
-            };
-
-
-            mup_widget.with_jquery(function ($, ctx) {
-                var group = '',
-                    months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                    addLink = function (content, link) {
-                        return '<a target="_top" href="' + link + '">' + content + '</a>';
-                    },
-                    addLeadingZero = function (num) {
-                        return (num < 10) ? ('0' + num) : num;
-                    },
-                    getFormattedDate = function (millis) {
-                        var date = new Date(millis);
-                        return months[date.getMonth()] + ' ' + addLeadingZero(date.getDate()) + ', ' + date.getFullYear().toString();
-                    },
-                    getFormattedTime = function (millis) {
-                        var time = new Date(millis),
-                            hours = time.getHours(),
-                            min = time.getMinutes(),
-                        min = addLeadingZero(min);
-                        return hours + ':' + min;
-                    },
-                    numberFormat = function (nStr) {
-                        nStr += '';
-                        x = nStr.split('.');
-                        x1 = x[0];
-                        x2 = x.length > 1 ? '.' + x[1] : '';
-                        var rgx = /(\d+)(\d{3})/;
-                        while (rgx.test(x1)) x1 = x1.replace(rgx, '$1' + ',' + '$2');
-                        return x1 + x2;
-                    };
-                $.getJSON($queries.groups(), function (data) {
-                    if (data.results.length == 0) {
-                        $('.mug-badge', ctx).width($parameters.width);
-                        $('.mug-badge', ctx).append('<div class="mup-widget error">\
-                   <div class="errorMsg">Oops. No results for "' + $parameters.urlname + '"</div>\
-                 </div>');
-                    } else {
-                        group = data.results[0];
-                        $('.mug-badge', ctx).width($parameters.width);
-                        $('.mug-badge', ctx).append('<div class="mup-widget">\
-                 <div class="mup-bd">\
-                   <span class="mup-stats"><div class="next-event"></div></span>\
-                 </div>\
-                 <div class="mup-ft">\
-               </div>\
-                </div>');
-                        $.getJSON($queries.events(), function (data) {
-                            if (data.status && data.status.match(/^200/) == null) {
-                                alert(data.status + ": " + data.details);
-                            } else {
-                                if (data.results.length == 0) {
-                                    $('.next-event', ctx).append('<span class="mup-tlabel">' + addLink('Suggest new ideas for Meetups!', group.link) + '</span>');
-                                } else {
-                                    var event = data.results[0];
-                                    var venue;
-                                    if (event.venue_name == "") {
-                                        if (event.venue_address1 == "") {
-                                            venue = "";
-                                        } else {
-                                            venue = event.venue_address1;
-                                        }
-                                    } else {
-                                        venue = event.venue_name;
-                                    }
-                                    var location = venue;
-                                    $('.next-event', ctx).append('<div class="mup-tlabel">The next event is ' + addLink(event.name, event.event_url) + " on " + getFormattedDate(parseInt(event.utc_time)) + ' at ' + getFormattedTime(parseInt(event.utc_time)) + ".</div>");
-                                }
-                            }
-                        });
-                    }
-                });
-            });
-            for (i in scripts) { eval(unescape(scripts[i])) }
           });
-        </script>
+      });
+      for (i in scripts) { eval(unescape(scripts[i])) }
+    });
+  </script>
 
-      section
-        p
-          ' Hashtag:
-          a(href="https://twitter.com/search?q=%23sthlmrb") #sthlmrb
-          '
-          ' (formerly:
-          a(href="https://twitter.com/search?q=%23SHRUGse") #SHRUGse
-          | )
-
-      footer
-        p
-          a href="https://github.com/sthlmrb/stockholmruby.com"
-            | Contribute to this site on GitHub.
+section
+  p
+    ' Hashtag:
+    a(href="https://twitter.com/search?q=%23sthlmrb") #sthlmrb
+    '
+    ' (formerly:
+    a(href="https://twitter.com/search?q=%23SHRUGse") #SHRUGse
+    | )
