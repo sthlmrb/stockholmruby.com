@@ -16,4 +16,4 @@ For repo access, ask [any repo member](https://github.com/sthlmrb?tab=members). 
 
 For Heroku (deployment) access, ask [Henrik Nyh](http://henrik.nyh.se).
 
-To manage DNS for domains `stockholmruby.com` and `stockholmruby.se`, talk to [Barsoom](http://barsoom.se).
+For DNS changes to `stockholmruby.com` and `stockholmruby.se`, talk to [Barsoom](http://barsoom.se).
