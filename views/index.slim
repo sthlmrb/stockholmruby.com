@@ -66,11 +66,8 @@ html
                         var time = new Date(millis),
                             hours = time.getHours(),
                             min = time.getMinutes(),
-                            ampm = (hours > 11) ? 'PM' : 'AM';
                         min = (min < 10) ? ('0' + min) : min;
-                        hours = (hours == 0) ? 1 : hours;
-                        hours = (hours > 12) ? hours - 12 : hours;
-                        return hours + ':' + min + ' ' + ampm;
+                        return hours + ':' + min;
                     },
                     numberFormat = function (nStr) {
                         nStr += '';
