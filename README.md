@@ -1,9 +1,19 @@
 # stockholmruby.com
 
-Very much a work in progress.
-
 Sinatra app.
+
 
 ## Deployment
 
 To Heroku.
+
+
+## Get involved
+
+Please help out!
+
+For repo access, ask [any repo member](https://github.com/sthlmrb?tab=members).
+
+For Heroku (deployment) access, ask [Henrik Nyh](http://henrik.nyh.se).
+
+To manage DNS for domains `stockholmruby.com` and `stockholmruby.se`, talk to [Barsoom](http://barsoom.se).
