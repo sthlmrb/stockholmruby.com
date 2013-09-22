@@ -42,7 +42,7 @@ html
               }
             };
 
-            var $parameters = {"urlname":"SHRUGse","width":"300","height":"500","_name":"Meetup Group Stats","_description":""};
+            var $parameters = {"urlname":"SHRUGse","width":"100%","height":"500","_name":"Meetup Group Stats","_description":""};
             var $queries = {
               groups: function() { return "http://api.meetup.com/groups?_=1363689120234&radius=25.0&order=ctime&group_urlname=SHRUGse&offset=0&callback=?&format=json&page=200&fields=&sig_id=10723355&sig=72f77253dedf5f6d022aa2038f70626e7bc58835&user_agent=meetup.widget:mug_stats"; },
               events: function() { return "http://api.meetup.com/events?_=1363689120235&radius=25.0&order=time&group_urlname=SHRUGse&offset=0&callback=?&format=json&page=1&fields=&sig_id=10723355&sig=74585a335f2976a6627d77a285e78316a3282ab2&user_agent=meetup.widget:mug_stats"; }
@@ -66,7 +66,7 @@ html
                         var time = new Date(millis),
                             hours = time.getHours(),
                             min = time.getMinutes(),
-                        min = (min < 10) ? ('0' + min) : min;
+                        min = addLeadingZero(min);
                         return hours + ':' + min;
                     },
                     numberFormat = function (nStr) {
@@ -89,8 +89,7 @@ html
                         $('.mug-badge', ctx).width($parameters.width);
                         $('.mug-badge', ctx).append('<div class="mup-widget">\
                  <div class="mup-bd">\
-                  <span class="members">' + numberFormat(group.members) + '<span class="mup-tlabel"> ' + group.who + '</span></span>\
-                                    <span class="mup-stats"><div class="next-event"></div></span>\
+                   <span class="mup-stats"><div class="next-event"></div></span>\
                  </div>\
                  <div class="mup-ft">\
                </div>\
@@ -103,34 +102,18 @@ html
                                     $('.next-event', ctx).append('<span class="mup-tlabel">' + addLink('Suggest new ideas for Meetups!', group.link) + '</span>');
                                 } else {
                                     var event = data.results[0];
-                                    var city;
-                                    if (event.venue_city == "") {
-                                        city = group.city;
-                                    } else {
-                                        city = event.venue_city;
-                                    }
-                                    var state_country;
-                                    if (event.venue_state == "") {
-                                        if (group.state == "") {
-                                            state_country = group.country.toUpperCase();
-                                        } else {
-                                            state_country = group.state;
-                                        }
-                                    } else {
-                                        state_country = event.venue_state;
-                                    }
                                     var venue;
                                     if (event.venue_name == "") {
                                         if (event.venue_address1 == "") {
                                             venue = "";
                                         } else {
-                                            venue = event.venue_address1 + " - ";
+                                            venue = event.venue_address1;
                                         }
                                     } else {
-                                        venue = event.venue_name + " - ";
+                                        venue = event.venue_name;
                                     }
-                                    var location = venue + city + ", " + state_country;
-                                    $('.next-event', ctx).append('<div class="mup-tlabel">' + getFormattedDate(parseInt(event.utc_time)) + '   at   ' + getFormattedTime(parseInt(event.utc_time)) + "</div>" + addLink(event.name, event.event_url) + '<div class="mup-tlabel">' + location + "</div>");
+                                    var location = venue;
+                                    $('.next-event', ctx).append('<div class="mup-tlabel">The next event is ' + addLink(event.name, event.event_url) + " on " + getFormattedDate(parseInt(event.utc_time)) + ' at ' + getFormattedTime(parseInt(event.utc_time)) + ".</div>");
                                 }
                             }
                         });
