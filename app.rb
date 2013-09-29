@@ -13,3 +13,7 @@ end
 get "/organize" do
   slim :organize
 end
+
+get "/work" do
+  slim :work
+end
