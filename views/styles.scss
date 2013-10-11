@@ -1,7 +1,7 @@
 $red: #c00;
-$dark-red: #500;
 $light-gray: #ddd;
 $dark-gray: #aaa;
+$hashtag-color: $dark-gray;
 
 body {
   padding: 30px 40px;
@@ -40,7 +40,12 @@ nav {
   margin: 30px 0;
 
   a { border-bottom: none; }
-  a:hover { color: $dark-red; }
+  a:hover { color: darken($red, 15%); }
+
+  .hashtag a {
+    color: $hashtag-color;
+    &:hover { color: darken($hashtag-color, 20%); }
+  }
 
   ul {
     list-style-type: none;
