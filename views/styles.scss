@@ -1,4 +1,5 @@
 $red: #c00;
+$light-red: lighten($red, 20%);
 $light-gray: #ddd;
 $dark-gray: #aaa;
 $hashtag-color: $dark-gray;
@@ -87,9 +88,20 @@ h3 {
   text-align: center;
 }
 
+
 footer {
+  text-align: center;
+  color: $dark-gray;
+  a, a:visited { color: #777; }
   font-size: 14px;
+
+  p {
+    display: inline;
+    margin: 0 10px;
+    &:first-child { margin: auto; }
+  }
 }
+
 
 section {
   margin: 50px 0;
@@ -107,11 +119,6 @@ li {
   margin: 15px 0;
 }
 
-
-h2.next-event {
-  @include small-text;
-  text-align: center;
-}
 
 .event {
   hgroup {

@@ -1,16 +1,15 @@
-section
+section.about-us
   markdown:
     The Stockholm Ruby user group arranges meetups where we program, learn from each other, network and socialize.
 
     Everyone's welcome – locals and visitors alike – whether you are a professional Rubyist, a Ruby "nuby" taking your first steps, or you're just curious about programming.
 
-section.events
-  h2.next-event Next up
-  - if next_event
-
+- if next_event
+  section.events
     .event
       hgroup
         h3.event-name
+          ' Next event:
           a href=next_event.url
             = next_event.name
         span.event-time
@@ -28,8 +27,5 @@ section.events
       '
       i or
       '
-      a(href="http://www.meetup.com/sthlmrb/") see more meetups
+      a(href="http://www.meetup.com/sthlmrb/") see more events
       | .
-
-  - else
-    p Couldn't find any upcoming events! Timeout?
