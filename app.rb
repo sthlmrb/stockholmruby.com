@@ -9,8 +9,10 @@ get "/styles.css" do
 end
 
 get "/" do
+  events = Meetup.upcoming(5)
   slim :index, locals: {
-    next_event: Meetup.upcoming(1).first
+    next_event: events.first,
+    more_events: events[1..-1]
   }
 end
 

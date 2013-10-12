@@ -6,7 +6,7 @@ section.about-us
 
 - if next_event
   section.events
-    .event
+    .next-event
       hgroup
         h3.event-name
           ' Next event:
@@ -22,10 +22,13 @@ section.about-us
           = next_event.venue_address
       .event-description== next_event.description
 
-    p.more-events
-      a(href=next_event.url) RSVP
-      '
-      i or
-      '
-      a(href="http://www.meetup.com/sthlmrb/") see more events
-      | .
+    .more-events
+
+      - more_events.each do |event|
+        h3
+          = event.time.strftime("%B %-d")
+          ' :
+          a(href=event.url)= event.name
+
+    .all-events
+      a(href="http://www.meetup.com/sthlmrb/") See all upcoming events.
