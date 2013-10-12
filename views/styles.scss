@@ -3,6 +3,12 @@ $light-gray: #ddd;
 $dark-gray: #aaa;
 $hashtag-color: $dark-gray;
 
+@mixin small-text {
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 body {
   padding: 30px 40px;
   font-family: 'Lato', sans-serif;
@@ -34,9 +40,7 @@ a {
 }
 
 nav {
-  text-transform: uppercase;
-  font-size: 15px;
-  font-weight: 700;
+  @include small-text;
   margin: 30px 0;
 
   a {
@@ -101,4 +105,31 @@ section {
 
 li {
   margin: 15px 0;
+}
+
+
+h2.next-event {
+  @include small-text;
+  text-align: center;
+}
+
+.event {
+  hgroup {
+    text-align: center;
+  }
+  .event-name {
+    margin-bottom: 10px;
+  }
+  .event-time, .event-venue {
+    margin: 0 10px;
+    font-size: 16px;
+    color: $dark-gray;
+  }
+  .event-description {
+    font-style: italic;
+  }
+}
+
+.more-events {
+  text-align: center;
 }
