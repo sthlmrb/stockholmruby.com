@@ -121,6 +121,14 @@ li {
 
 
 .next-event {
+  background: #f2f2f2;
+  padding: 30px;
+  font-size: 16px;
+
+  // Don't mess up the box padding.
+  h3 { margin-top: 0; }
+  .event-description :last-child { margin-bottom: 0; }
+
   hgroup {
     text-align: center;
   }
@@ -129,7 +137,6 @@ li {
   }
   .event-time, .event-venue {
     margin: 0 10px;
-    font-size: 16px;
     color: $dark-gray;
   }
   .event-description {
