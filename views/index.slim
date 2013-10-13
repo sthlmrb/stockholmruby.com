@@ -7,6 +7,9 @@ section.about-us
 - if next_event
   section.events
     .next-event
+      .calendar-page
+        .calendar-page-month= next_event.time.strftime("%b")
+        .calendar-page-day= next_event.time.strftime("%-d")
       hgroup
         h3.event-name
           ' Next event:

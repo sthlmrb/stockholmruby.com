@@ -144,6 +144,25 @@ li {
   }
 }
 
+.calendar-page {
+  border: 1px solid #dedede;
+  width: 3em;
+  float: left;
+  margin: 5px;
+  text-align: center;
+  * { padding: 3px 5px; }
+  .calendar-page-month {
+    background: $red;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 10px;
+  }
+  .calendar-page-day {
+    background: #fff;
+    font-size: 18px;
+  }
+}
+
 .more-events {
   text-align: center;
   h3 { font-size: 18px; }
