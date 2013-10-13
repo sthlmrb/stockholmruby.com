@@ -4,8 +4,15 @@ $light-gray: #ddd;
 $dark-gray: #aaa;
 $hashtag-color: $dark-gray;
 
+$xxsmall: 10px;
+$xsmall: 15px;
+$small: 16px;
+$medium: 18px;
+$large: 24px;
+$xlarge: 45px;
+
 @mixin small-text {
-  font-size: 15px;
+  font-size: $xsmall;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -13,7 +20,7 @@ $hashtag-color: $dark-gray;
 body {
   padding: 30px 40px;
   font-family: 'Lato', sans-serif;
-  font-size: 18px;
+  font-size: $medium;
   font-weight: 300;
 }
 
@@ -69,7 +76,7 @@ nav {
 }
 
 h1 {
-  font-size: 45px;
+  font-size: $xlarge;
   font-weight: 900;
   margin-top: -20px;
   margin-bottom: 10px;
@@ -79,21 +86,12 @@ h3 {
   margin-top: 30px;
 }
 
-.subtitle {
-  color: $dark-gray;
-  font-size: 16px;
-}
-
-.mup-widget {
-  text-align: center;
-}
-
 
 footer {
   text-align: center;
   color: $dark-gray;
   a, a:visited { color: #777; }
-  font-size: 14px;
+  font-size: $xsmall;
 
   p {
     display: inline;
@@ -120,10 +118,24 @@ li {
 }
 
 
+.about-us {
+  line-height: 150%;
+
+  .hero {
+    font-size: $large;
+    line-height: 150%;
+  }
+
+  .details {
+    font-size: $small;
+  }
+}
+
+
 .next-event {
   background: #f2f2f2;
   padding: 30px;
-  font-size: 16px;
+  font-size: $small;
 
   // Don't mess up the box padding.
   h3 { margin-top: 0; }
@@ -155,17 +167,17 @@ li {
     background: $red;
     color: #fff;
     text-transform: uppercase;
-    font-size: 10px;
+    font-size: $xxsmall;
   }
   .calendar-page-day {
     background: #fff;
-    font-size: 18px;
+    font-size: $medium;
   }
 }
 
 .more-events {
   text-align: center;
-  h3 { font-size: 18px; }
+  h3 { font-size: $medium; }
   h3:nth-child(1) { opacity: 0.8; }
   h3:nth-child(2) { opacity: 0.6; }
   h3:nth-child(3) { opacity: 0.4; }
