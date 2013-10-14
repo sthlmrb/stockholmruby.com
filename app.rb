@@ -4,6 +4,8 @@ Bundler.require :default, (ENV["RACK_ENV"] || "development").to_sym
 
 require_relative "meetup"
 
+set :cache_enabled, true
+set :cache, Dalli::Client.new
 set :static_cache_control, [:public, max_age: 3600]
 
 before do
@@ -11,19 +13,19 @@ before do
 end
 
 get "/styles.css" do
-  scss :styles
+  cached { scss :styles }
 end
 
 get "/" do
-  slim :index, locals: event_data
+  cached { slim :index, locals: event_data }
 end
 
 get "/organize" do
-  slim :organize
+  cached { slim :organize }
 end
 
 get "/work" do
-  slim :work
+  cached { slim :work }
 end
 
 def event_data
@@ -33,4 +35,21 @@ def event_data
     next_event: events.first,
     more_events: events[1..-1]
   }
+end
+
+def cached(ttl = 120, &block)
+  return yield unless settings.cache_enabled
+
+  fetch("sthlmrb#{request.path}", ttl, &block)
+end
+
+def fetch(key, ttl, &block)
+  value = settings.cache.get(key)
+
+  if value.nil?
+    value = yield
+    settings.cache.set(key, value, ttl)
+  end
+
+  value
 end
