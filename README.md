@@ -18,12 +18,12 @@ Add the `MEETUP_KEY` environment variable to `.env`
 
 Now you can set up the app as normal:
 
-    % bundle install
-    % foreman start -p 9292
+    % bundle
+    % foreman start
 
-It is now running on [http://localhost:9292/](http://localhost:9292).
+It is now running on <http://localhost:5000/>.
 
-    % open http://localhost:9292/
+    % open http://localhost:5000/
 
 
 ## Get involved
