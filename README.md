@@ -10,14 +10,16 @@ To Heroku.
 
 ## Development
 
-To run the app locally you must first find [your Meetup API key](http://www.meetup.com/meetup_api/key/). Set the `MEETUP_KEY` environment variable.
+To run the app locally you must first find [your Meetup API key](http://www.meetup.com/meetup_api/key/).
 
-    % export MEETUP_KEY=...
+Add the `MEETUP_KEY` environment variable to `.env`
+
+    % echo MEETUP_KEY=... >> .env
 
 Now you can set up the app as normal:
 
     % bundle install
-    % rackup
+    % foreman start -p 9292
 
 It is now running on [http://localhost:9292/](http://localhost:9292).
 
