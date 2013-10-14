@@ -4,8 +4,8 @@ Bundler.require :default, (ENV["RACK_ENV"] || "development").to_sym
 
 require_relative "meetup"
 
-set :cache_enabled, true
 set :cache, Dalli::Client.new
+set :cache_enabled, ENV["CACHE_ENABLED"] == "true"
 set :static_cache_control, [:public, max_age: 3600]
 
 before do
