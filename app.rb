@@ -28,6 +28,10 @@ get "/work" do
   cached { slim :work }
 end
 
+get "/install" do
+  redirect "http://docs.railsbridge.org/installfest/choose_your_operating_system"
+end
+
 def event_data
   events = Meetup.upcoming(5)
 
