@@ -10,9 +10,7 @@ class Meetup
     end
   end
 
-  def self.upcoming(count)
-    key  = ENV["MEETUP_KEY"]
-
+  def self.upcoming(count, key = ENV["MEETUP_KEY"])
     return [] unless key
 
     url  = "https://api.meetup.com/2/events?&sign=true&group_urlname=sthlmrb&page=#{count}&key=#{key}"
