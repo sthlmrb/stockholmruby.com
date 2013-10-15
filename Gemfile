@@ -19,4 +19,5 @@ group :test do
   gem "rake"
   gem "rspec"
   gem "capybara"
+  gem "dotenv"
 end

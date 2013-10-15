@@ -4,8 +4,17 @@ require "capybara/rspec"
 require_relative "../app"
 
 Capybara.app = StockholmRubySite.new
+Dotenv.load
 
 feature "Integrated pages", type: :feature do
+  before(:all) do
+    if ENV["MEETUP_KEY"]
+      puts "Integrating with Meetup API using key from .env!"
+    else
+      puts "Integrating without Meetup API!"
+    end
+  end
+
   scenario "Visiting start page" do
     visit "/"
     expect(page).to have_content("Stockholm Ruby")

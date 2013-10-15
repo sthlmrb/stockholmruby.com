@@ -58,6 +58,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   dalli
+  dotenv
   foreman
   rake
   rdiscount
