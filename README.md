@@ -1,5 +1,7 @@
 # stockholmruby.com
 
+[![Build Status](https://travis-ci.org/sthlmrb/stockholmruby.com.png)](https://travis-ci.org/sthlmrb/stockholmruby.com)
+
 Sinatra app.
 
 
