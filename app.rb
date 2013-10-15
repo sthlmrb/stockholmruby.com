@@ -33,6 +33,8 @@ class StockholmRubySite < Sinatra::Base
     redirect "http://docs.railsbridge.org/installfest/choose_your_operating_system"
   end
 
+  private
+
   def event_data
     events = Meetup.upcoming(5)
 
