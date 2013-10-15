@@ -3,7 +3,7 @@ require "capybara/rspec"
 
 require_relative "../app"
 
-Capybara.app = Sinatra::Application.new
+Capybara.app = StockholmRubySite.new
 
 feature "Integrated pages", type: :feature do
   scenario "Visiting start page" do
