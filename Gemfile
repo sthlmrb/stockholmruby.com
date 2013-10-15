@@ -14,3 +14,8 @@ gem "rdiscount"
 group :development do
   gem "foreman"
 end
+
+group :test do
+  gem "rspec"
+  gem "capybara"
+end

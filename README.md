@@ -26,6 +26,12 @@ It is now running on <http://localhost:5000/>.
     % open http://localhost:5000/
 
 
+## Test
+
+    % bundle  # if you didn't already
+    % rake
+
+
 ## Get involved
 
 Please help out!

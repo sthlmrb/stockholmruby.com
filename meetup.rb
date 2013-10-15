@@ -12,6 +12,9 @@ class Meetup
 
   def self.upcoming(count)
     key  = ENV["MEETUP_KEY"]
+
+    return [] unless key
+
     url  = "https://api.meetup.com/2/events?&sign=true&group_urlname=sthlmrb&page=#{count}&key=#{key}"
     json = Timeout.timeout(5) { open(url).read }
     data = JSON.parse(json)
