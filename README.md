@@ -7,7 +7,7 @@ Sinatra app.
 
 ## Deployment
 
-To Heroku.
+To Heroku. Autodeployed via Travis CI when pushed to this repo.
 
 
 ## Development
@@ -41,6 +41,8 @@ It will be running on <http://localhost:5000/>.
 
 If your `MEETUP_KEY` is in the `.env` file per the development instructions, it will be used in the integration tests.
 
+We have CI: <http://travis-ci.org/sthlmrb/stockholmruby.com>
+
 
 ## Get involved
 
@@ -48,6 +50,6 @@ Please help out!
 
 For repo access, ask [any repo member](https://github.com/sthlmrb?tab=members). You can also fork and submit pull requests.
 
-For Heroku (deployment) access, ask [Henrik Nyh](http://henrik.nyh.se).
+For Heroku access, ask [Henrik Nyh](http://henrik.nyh.se).
 
 For DNS changes to `stockholmruby.com` and `stockholmruby.se`, talk to [Barsoom](http://barsoom.se).
