@@ -3,5 +3,6 @@ rvm:
   - 2.0.0
 deploy:
   provider: heroku
+  app: sthlmrb
   api_key:
     secure: kcl7Arg/EukdfZNpj0i03gQmQ05xbtq/VXSORNOCfuM3w7XuICrZD5925TqQMcEb+p+sObv1EYBbHcFBaezjjWNikVpDr5q9X8/I4h93F0yveM3+FO68OJ8N/ZBuvwzO9SuXHs62jaqBzbFvJIXidznGVcC45T7HsrhyQ/f/mI8=
