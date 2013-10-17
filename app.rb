@@ -25,6 +25,10 @@ class StockholmRubySite < Sinatra::Base
     cached { slim :organize }
   end
 
+  get "/learn" do
+    cached { slim :learn }
+  end
+
   get "/work" do
     cached { slim :work }
   end
