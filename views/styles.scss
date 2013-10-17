@@ -47,6 +47,17 @@ a {
   text-align: center;
 }
 
+.hashtag {
+  margin-top: -5px;
+  @include small-text;
+
+  a {
+    border-bottom: none;
+    color: $hashtag-color;
+    &:hover { color: darken($hashtag-color, 20%); }
+  }
+}
+
 nav {
   @include small-text;
   margin: 20px 0;
@@ -56,11 +67,6 @@ nav {
     display: inline-block;
     padding: 10px;
     &:hover { color: darken($red, 15%); }
-  }
-
-  .hashtag a {
-    color: $hashtag-color;
-    &:hover { color: darken($hashtag-color, 20%); }
   }
 
   ul {
