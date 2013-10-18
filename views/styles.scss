@@ -116,6 +116,7 @@ footer {
 
 
 section {
+  line-height: 1.5;
   margin: 40px 0;
 }
 
@@ -133,11 +134,8 @@ li {
 
 
 .about-us {
-  line-height: 150%;
-
   .hero {
     font-size: $large;
-    line-height: 150%;
   }
 
   .details {
