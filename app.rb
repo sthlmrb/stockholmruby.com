@@ -33,6 +33,10 @@ class StockholmRubySite < Sinatra::Base
     cached { slim :work }
   end
 
+  get "/chat" do
+    cached { slim :chat }
+  end
+
   get "/install" do
     redirect "http://docs.railsbridge.org/installfest/choose_your_operating_system"
   end

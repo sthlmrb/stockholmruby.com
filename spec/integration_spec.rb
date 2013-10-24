@@ -29,8 +29,15 @@ feature "Integrated pages", type: :feature do
 
   scenario "Visiting 'work' page" do
     visit "/"
-    click_link "Find a job"
+    click_link "Jobs"
     expect(current_path).to eq("/work")
     expect(page).to have_content("Work")
+  end
+
+  scenario "Visiting 'chat' page" do
+    visit "/"
+    click_link "Chat"
+    expect(current_path).to eq("/chat")
+    expect(page).to have_content("Chat")
   end
 end
