@@ -11,7 +11,9 @@ class StockholmRubySite < Sinatra::Base
   set :static_cache_control, [:public, max_age: 3600]
 
   before do
-    cache_control :public, max_age: 600
+    unless params[:nocache]
+      cache_control :public, max_age: 600
+    end
   end
 
   get "/styles.css" do
