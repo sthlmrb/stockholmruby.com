@@ -41,10 +41,10 @@ class StockholmRubySite < Sinatra::Base
   get "/install" do
     redirect "http://docs.railsbridge.org/installfest/choose_your_operating_system"
   end
-  
+
   get "/railsintro" do
     redirect "http://slid.es/gudj/rails-intro-short"
-  end  
+  end
 
   private
 
