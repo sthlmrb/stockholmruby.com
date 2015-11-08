@@ -17,7 +17,7 @@ class Meetup
     json = Timeout.timeout(5) { open(url).read }
     data = JSON.parse(json)
 
-    data["results"].map { |x|
+    data.fetch("results").map { |x|
       Result.new(
         name: x["name"],
         url:  x["event_url"],
