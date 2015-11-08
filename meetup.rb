@@ -18,13 +18,15 @@ class Meetup
     data = JSON.parse(json)
 
     data.fetch("results").map { |x|
+      venue = x["venue"]
+
       Result.new(
         name: x["name"],
         url:  x["event_url"],
         time: x["time"],
         description: x["description"],
-        venue_name:    x["venue"]["name"],
-        venue_address: x["venue"]["address_1"]
+        venue_name:    venue && venue["name"],
+        venue_address: venue && venue["address_1"],
       )
     }
   rescue TimeoutError
