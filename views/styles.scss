@@ -55,6 +55,7 @@ a {
   a {
     border-bottom: none;
     color: $hashtag-color;
+    letter-spacing: 1px;
     &:hover { color: darken($hashtag-color, 20%); }
   }
 }
@@ -66,6 +67,7 @@ nav {
   a {
     border-bottom: none;
     display: inline-block;
+    letter-spacing: 1px;
     padding: 10px;
     &:hover { color: darken($red, 15%); }
   }
@@ -93,6 +95,7 @@ nav {
 h1 {
   font-size: $xlarge;
   font-weight: 700;
+  letter-spacing: 1px;
   margin-top: -20px;
   margin-bottom: 10px;
 }
