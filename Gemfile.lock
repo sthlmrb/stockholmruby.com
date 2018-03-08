@@ -15,11 +15,11 @@ GEM
       thor (>= 0.13.6)
     kgio (2.10.0)
     mime-types (1.25)
-    mini_portile (0.5.1)
-    nokogiri (1.6.0)
-      mini_portile (~> 0.5.0)
-    rack (1.5.2)
-    rack-protection (1.5.0)
+    mini_portile2 (2.3.0)
+    nokogiri (1.8.2)
+      mini_portile2 (~> 2.3.0)
+    rack (1.6.9)
+    rack-protection (1.5.5)
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -68,5 +68,8 @@ DEPENDENCIES
   slim
   unicorn
 
+RUBY VERSION
+   ruby 2.2.2p95
+
 BUNDLED WITH
-   1.10.6
+   1.16.1
