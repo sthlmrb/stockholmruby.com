@@ -50,7 +50,7 @@ describe Meetup, ".upcoming" do
   end
 
   def stub_response(hash)
-    Meetup.stub_chain(:open, :read) do
+    allow(Meetup).to receive_message_chain(:open, :read) do
       JSON.dump(hash)
     end
   end
