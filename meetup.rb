@@ -29,7 +29,7 @@ class Meetup
         venue_address: venue && venue["address_1"],
       )
     }
-  rescue TimeoutError
+  rescue TimeoutError, OpenURI::HTTPError
     []
   end
 end
