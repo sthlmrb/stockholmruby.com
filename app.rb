@@ -1,9 +1,8 @@
 require "rubygems"
 require "bundler"
+require_relative "meetup"
 
 Bundler.require :default, (ENV["RACK_ENV"] || "development").to_sym
-
-require_relative "meetup"
 
 class StockholmRubySite < Sinatra::Base
   set :cache, Dalli::Client.new
@@ -51,7 +50,7 @@ class StockholmRubySite < Sinatra::Base
   private
 
   def event_data
-    events = Meetup.upcoming(5)
+    events = Meetup.upcoming
 
     {
       next_event: events.first,

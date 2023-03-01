@@ -1,35 +1,18 @@
-require "open-uri"
-require "json"
-require "timeout"
 require "ostruct"
 
 class Meetup
-  class Result < OpenStruct
-    def time
-      Time.at(super / 1000)
-    end
-  end
+  class Result < OpenStruct; end
 
-  def self.upcoming(count, key = ENV["MEETUP_KEY"])
-    return [] unless key
-
-    url  = "https://api.meetup.com/2/events?&sign=true&group_urlname=sthlmrb&page=#{count}&key=#{key}"
-    json = Timeout.timeout(5) { open(url).read }
-    data = JSON.parse(json)
-
-    data.fetch("results").map { |x|
-      venue = x["venue"]
-
+  def self.upcoming
+    [
       Result.new(
-        name: x["name"],
-        url:  x["event_url"],
-        time: x["time"],
-        description: x["description"],
-        venue_name:    venue && venue["name"],
-        venue_address: venue && venue["address_1"],
+        name: "Ruby GAME SHOW meetup",
+        url:  "https://www.cloudamqp.com/blog/ruby-game-show-meetup.html",
+        time: Time.parse("2023-03-16 18:00 CEST"),
+        description: "We are excited to welcome you to the Ruby Game Show Meetup in Stockholm! Join us at 6 pm on March 16 for a fantastic evening with a mix of games, talks, food, and drinks. In addition, you can meet other developers and make new connections in the industry.",
+        venue_name:    "Gasverket/United Spaces",
+        venue_address: "Torsgatan 25, Stockholm",
       )
-    }
-  rescue TimeoutError, OpenURI::HTTPError
-    []
+    ]
   end
 end
