@@ -8,7 +8,7 @@ gem "dalli"
 
 gem "sinatra"
 gem "slim"
-gem "sass"
+gem "sassc"
 gem "rdiscount"
 
 group :development do
