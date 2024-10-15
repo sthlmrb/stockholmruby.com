@@ -1,11 +1,7 @@
-require "ostruct"
-
-class Meetup
-  class Result < OpenStruct; end
-
+Meetup = Data.define(:name, :url, :time, :description, :venue_name, :venue_address) do
   def self.upcoming
     [
-      Result.new(
+      new(
         name: "Ruby Meetup with Hemnet",
         url: "https://rubymeetup.confetti.events/signup",
         time: Time.parse("2024-03-13 17:30 CEST"),

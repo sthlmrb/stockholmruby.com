@@ -28,7 +28,6 @@ GEM
     nokogiri (1.16.7)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    ostruct (0.6.0)
     public_suffix (6.0.1)
     racc (1.8.1)
     rack (3.1.8)
@@ -85,7 +84,6 @@ DEPENDENCIES
   dotenv
   foreman
   logger
-  ostruct
   rake
   rdiscount
   rspec
