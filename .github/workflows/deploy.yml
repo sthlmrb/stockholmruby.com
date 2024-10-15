@@ -1,18 +1,22 @@
 name: Deploy
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
 
 jobs:
-  build:
-    runs-on: ubuntu-22.04
+  deploy:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Deploy to Heroku
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          HEROKU_APP_NAME: ${{ vars.HEROKU_APP_NAME || 'sthlmrb' }}
         run: |
-          git remote add heroku "https://:${HEROKU_API_KEY}@git.heroku.com/sthlmrb.git"
+          git remote add heroku "https://:${HEROKU_API_KEY}@git.heroku.com/${HEROKU_APP_NAME}.git"
           git push heroku master
