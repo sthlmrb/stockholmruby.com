@@ -1,15 +1,17 @@
 source "https://rubygems.org"
 
-ruby "3.1.2"
+ruby file: ".ruby-version"
 
+gem "sinatra"
+
+gem "slim"
+gem "sassc"
+gem "rdiscount"
+
+gem "logger"
 gem "unicorn"
 
 gem "dalli"
-
-gem "sinatra"
-gem "slim"
-gem "sass"
-gem "rdiscount"
 
 group :development do
   gem "foreman"

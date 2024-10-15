@@ -50,11 +50,13 @@ class StockholmRubySite < Sinatra::Base
   private
 
   def event_data
-    events = Meetup.upcoming
+    upcoming_events = Meetup.upcoming
+    past_events = Meetup.past
 
     {
-      next_event: events.first,
-      more_events: events[1..-1]
+      next_event: upcoming_events.first,
+      more_events: upcoming_events[1..-1],
+      past_events:,
     }
   end
 

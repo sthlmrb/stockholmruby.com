@@ -34,3 +34,15 @@ section.about-us
           = event.time.strftime("%B %-d")
           ' :
           a(href=event.url)= event.name
+
+- if past_events.any?
+  .past-events
+    header
+      h2 Past events
+    ol
+      - past_events.each do |event|
+        li
+          h3
+            = event.time.strftime("%B %-d, %Y")
+            ' :
+            a(href=event.url)= event.name
