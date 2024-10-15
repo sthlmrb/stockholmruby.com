@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: akhileshns/heroku-deploy@v3.13.15
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "sthlmrb"
-          branch: "master"
-          heroku_email: "albert@auctionet.com"
+      - name: Deploy to Heroku
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: |
+          git remote add heroku https://:${HEROKU_API_KEY}@git.heroku.com/sthlmrb.git
+          git push heroku master
