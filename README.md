@@ -30,7 +30,7 @@ We have CI: <http://travis-ci.org/sthlmrb/stockholmruby.com>
 
 ## Get involved
 
-Please help out!
+Please help out!!
 
 For repo access, ask [any repo member](https://github.com/sthlmrb?tab=members). You can also fork and submit pull requests.
 
