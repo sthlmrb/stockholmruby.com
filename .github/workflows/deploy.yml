@@ -7,12 +7,12 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Deploy to Heroku
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: |
-          git remote add heroku "https://:${HEROKU_API_KEY}@git.heroku.com/sthlmrb.git"
+          git remote add heroku "https://heroku:${HEROKU_API_KEY}@git.heroku.com/sthlmrb.git"
           git push heroku master
