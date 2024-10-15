@@ -1,5 +1,16 @@
+require "time"
+require "date"
+
 Meetup = Data.define(:name, :url, :time, :description, :venue_name, :venue_address) do
   def self.upcoming
+    all.select { |meetup| meetup.time.to_date >= Date.today }
+  end
+
+  def self.past
+    all.select { |meetup| meetup.time.to_date < Date.today }
+  end
+
+  def self.all
     [
       new(
         name: "Ruby Meetup with Hemnet",

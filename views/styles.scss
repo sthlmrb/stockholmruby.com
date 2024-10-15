@@ -220,6 +220,27 @@ li {
   }
 }
 
+.past-events {
+  margin-bottom: 30px;
+
+  ol {
+    list-style-type: disc;
+
+    li {
+      margin: 0;
+    }
+  }
+
+  h2 {
+    font-size: $medium;
+  }
+
+  h3 {
+    font-size: $small;
+    margin: 0;
+  }
+}
+
 .all-events {
   text-align: center;
   margin: 30px 0;
