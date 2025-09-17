@@ -13,6 +13,14 @@ Meetup = Data.define(:name, :url, :time, :description, :venue_name, :venue_addre
   def self.all
     [
       new(
+        name: "Stockholm Ruby Meetup at Qasa",
+        url: "https://luma.com/z5j80vna",
+        time: Time.parse("2025-10-16 18:00 CEST"),
+        description: "",
+        venue_name: "Qasa",
+        venue_address: "Folkungagatan 44",
+      ),
+      new(
         name: "Springish Ruby Meetup",
         url: "https://lu.ma/1g14ow05",
         time: Time.parse("2025-03-27 17:30 CEST"),
