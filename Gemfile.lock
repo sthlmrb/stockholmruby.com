@@ -19,7 +19,7 @@ GEM
     ffi (1.17.0)
     foreman (0.88.1)
     kgio (2.11.4)
-    logger (1.6.1)
+    logger (1.7.0)
     matrix (0.4.2)
     mini_mime (1.1.5)
     mini_portile2 (2.8.7)
@@ -28,6 +28,7 @@ GEM
     nokogiri (1.16.7)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
+    ostruct (0.6.3)
     public_suffix (6.0.1)
     racc (1.8.1)
     rack (3.1.8)
@@ -84,6 +85,7 @@ DEPENDENCIES
   dotenv
   foreman
   logger
+  ostruct
   rake
   rdiscount
   rspec

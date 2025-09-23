@@ -8,10 +8,12 @@ gem "slim"
 gem "sassc"
 gem "rdiscount"
 
-gem "logger"
 gem "unicorn"
 
 gem "dalli"
+
+gem "logger"
+gem "ostruct"
 
 group :development do
   gem "foreman"
