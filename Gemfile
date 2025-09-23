@@ -16,6 +16,7 @@ gem "logger"
 gem "ostruct"
 
 group :development do
+  gem "standard", require: false
   gem "foreman"
 end
 
