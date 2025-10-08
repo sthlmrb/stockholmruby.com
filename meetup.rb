@@ -18,7 +18,7 @@ Meetup = Data.define(:name, :url, :time, :description, :venue_name, :venue_addre
         time: Time.parse("2025-10-16 18:00 CEST"),
         description: "",
         venue_name: "Qasa",
-        venue_address: "Folkungagatan 44",
+        venue_address: "Folkungagatan 44"
       ),
       new(
         name: "Springish Ruby Meetup",
@@ -26,7 +26,7 @@ Meetup = Data.define(:name, :url, :time, :description, :venue_name, :venue_addre
         time: Time.parse("2025-03-27 17:30 CEST"),
         description: "",
         venue_name: "Hemnet",
-        venue_address: "Sveavägen 9",
+        venue_address: "Sveavägen 9"
       ),
       new(
         name: "Winterish Ruby Meetup",
@@ -35,20 +35,20 @@ Meetup = Data.define(:name, :url, :time, :description, :venue_name, :venue_addre
         description: <<~DESCRIPTION,
         DESCRIPTION
         venue_name: "Hemnet",
-        venue_address: "Sveavägen 9",
+        venue_address: "Sveavägen 9"
       ),
       new(
         name: "Cozy Ruby Meetup at Hemnet",
         url: "https://www.meetup.com/sthlmrb/events/303483996/",
         time: Time.parse("2024-09-25 17:30 CEST"),
         description: <<~DESCRIPTION,
-        Welcome to Ruby Meetup at Hemnet office at Sveavägen 9.
-          After Baltic ruby we have talked about a need to have a place of
-          gathering for community. Hemnet office can be that place with some
-          home rules and keeping it low-key.
+          Welcome to Ruby Meetup at Hemnet office at Sveavägen 9.
+            After Baltic ruby we have talked about a need to have a place of
+            gathering for community. Hemnet office can be that place with some
+            home rules and keeping it low-key.
         DESCRIPTION
         venue_name: "Hemnet",
-        venue_address: "Sveavägen 9",
+        venue_address: "Sveavägen 9"
       ),
       new(
         name: "Ruby Meetup with Hemnet",
@@ -56,7 +56,7 @@ Meetup = Data.define(:name, :url, :time, :description, :venue_name, :venue_addre
         time: Time.parse("2024-03-13 17:30 CEST"),
         description: "A sparkling event hosted by Ruby fans for Ruby fans in a cozy environment with 🍕 and🧋. Listen to our colleague Olov talking about 'The Journey to a new Map' and Youssef dive into image postprocessing in Ruby.",
         venue_name: "Hemnet",
-        venue_address: "Sveavägen 9",
+        venue_address: "Sveavägen 9"
       )
     ]
   end

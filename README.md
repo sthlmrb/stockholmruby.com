@@ -1,32 +1,34 @@
-# stockholmruby.com
+# [stockholmruby.com](https://stockholmruby.com)
 
-[![Build Status](https://travis-ci.org/sthlmrb/stockholmruby.com.png)](https://travis-ci.org/sthlmrb/stockholmruby.com)
+[![Main](https://github.com/sthlmrb/stockholmruby.com/actions/workflows/main.yml/badge.svg?event=push)](https://github.com/sthlmrb/stockholmruby.com/actions/workflows/main.yml)
 
-Sinatra app.
-
+Sinatra app, see `app.rb`.
 
 ## Deployment
 
-To Heroku. Autodeployed via Travis CI when pushed to this repo.
-
+To Heroku. Autodeployed by Heroku on push to default branch.
 
 ## Development
 
-    % bundle
-    % foreman start
+```
+% bin/setup
+% bin/dev
+```
 
-It will be running on <http://localhost:5000/>.
+It will be running on <http://localhost:3000/>.
 
-    % open http://localhost:5000/
-
+```
+% open http://localhost:3000/
+```
 
 ## Test
 
-    % bundle  # if you didn't already
-    % rake
+```
+% bin/setup
+% bin/test
+```
 
-We have CI: <http://travis-ci.org/sthlmrb/stockholmruby.com>
-
+We have CI: <https://github.com/sthlmrb/stockholmruby.com/actions/workflows/main.yml>
 
 ## Get involved
 
@@ -34,6 +36,6 @@ Please help out!!
 
 For repo access, ask [any repo member](https://github.com/sthlmrb?tab=members). You can also fork and submit pull requests.
 
-For Heroku access, ask [Henrik Nyh](http://henrik.nyh.se).
+For Heroku access, ask [Varvet](https://varvet.com).
 
-For DNS changes to `stockholmruby.com` and `stockholmruby.se`, talk to [Barsoom](http://barsoom.se).
+For DNS changes to `stockholmruby.com` and `stockholmruby.se`, talk to [Varvet](https://varvet.com).
