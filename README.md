@@ -10,21 +10,25 @@ To Heroku. Autodeployed by Heroku on push to default branch.
 
 ## Development
 
-    % bundle
-    % foreman start
+```
+% bin/setup
+% bin/dev
+```
 
-It will be running on <http://localhost:5000/>.
+It will be running on <http://localhost:3000/>.
 
-    % open http://localhost:5000/
-
+```
+% open http://localhost:3000/
+```
 
 ## Test
 
-    % bundle  # if you didn't already
-    % rake
+```
+% bin/setup
+% bin/test
+```
 
 We have CI: <https://github.com/sthlmrb/stockholmruby.com/actions/workflows/main.yml>
-
 
 ## Get involved
 
