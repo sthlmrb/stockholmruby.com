@@ -3,12 +3,11 @@ source "https://rubygems.org"
 ruby file: ".ruby-version"
 
 gem "sinatra"
+gem "puma"
 
 gem "slim"
 gem "sassc"
 gem "rdiscount"
-
-gem "unicorn"
 
 gem "dalli"
 
