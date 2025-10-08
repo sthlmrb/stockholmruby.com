@@ -55,8 +55,8 @@ class StockholmRubySite < Sinatra::Base
 
     {
       next_event: upcoming_events.first,
-      more_events: upcoming_events[1..-1],
-      past_events:,
+      more_events: upcoming_events[1..],
+      past_events:
     }
   end
 
