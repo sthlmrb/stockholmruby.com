@@ -1,0 +1,29 @@
+# fly.toml app configuration file generated for stockholmruby-com on 2026-02-04T20:54:19+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'stockholmruby-com'
+primary_region = 'arn'
+
+[build]
+
+[env]
+  PORT = '8080'
+  RACK_ENV = 'production'
+
+[processes]
+  app = 'server'
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'suspend'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '256mb'
+  cpus = 1
+  memory_mb = 256

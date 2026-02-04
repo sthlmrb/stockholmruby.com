@@ -1,0 +1,19 @@
+#!/bin/bash -e
+
+case "$1" in
+  server)
+    exec bundle exec puma -p "${PORT:-8080}" -e "${RACK_ENV:-production}"
+    ;;
+
+  console)
+    exec bundle exec irb -r ./app
+    ;;
+
+  bash|sh)
+    exec /bin/bash
+    ;;
+
+  *)
+    exec "${@}"
+    ;;
+esac
