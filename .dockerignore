@@ -1,0 +1,14 @@
+# Ignore git directory.
+/.git/
+/.gitignore
+
+/.github/
+/.bundle/
+
+# flyctl launch added from .gitignore
+**/.env
+**/.sass-cache
+**/tmp
+
+# flyctl launch added from .ruby-lsp/.gitignore
+.ruby-lsp/**/*
