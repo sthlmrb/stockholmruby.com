@@ -3,7 +3,7 @@
 #
 # This Dockerfile is designed for production, not development.
 
-ARG RUBY_VERSION=3.4.6
+ARG RUBY_VERSION=4.0.1
 FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 
 # Rack app lives here
