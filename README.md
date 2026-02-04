@@ -6,7 +6,7 @@ Sinatra app, see `app.rb`.
 
 ## Deployment
 
-To Heroku. Autodeployed by Heroku on push to default branch.
+To Fly.io. Autodeployed on push to main via GitHub Actions.
 
 ## Development
 
@@ -36,6 +36,6 @@ Please help out!!
 
 For repo access, ask [any repo member](https://github.com/sthlmrb?tab=members). You can also fork and submit pull requests.
 
-For Heroku access, ask [Varvet](https://varvet.com).
+For Fly.io access, ask [Varvet](https://varvet.com).
 
 For DNS changes to `stockholmruby.com` and `stockholmruby.se`, talk to [Varvet](https://varvet.com).
