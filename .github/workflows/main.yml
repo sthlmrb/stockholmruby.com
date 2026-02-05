@@ -16,7 +16,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - run: bundle exec rake spec
+      - run: bin/test
 
   lint:
     runs-on: ubuntu-latest
@@ -26,3 +26,10 @@ jobs:
         with:
           bundler-cache: true
       - run: bin/lint
+
+  deploy:
+    needs: [test, lint]
+    if: github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/deploy.yml
+    secrets:
+      FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}

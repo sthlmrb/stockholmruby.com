@@ -2,9 +2,11 @@
 
 name: Fly Deploy
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+  workflow_call:
+    secrets:
+      FLY_API_TOKEN:
+        required: true
 jobs:
   deploy:
     name: Deploy app
