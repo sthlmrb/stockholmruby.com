@@ -13,7 +13,6 @@ gem "ostruct"
 
 group :development do
   gem "standard", require: false
-  gem "foreman"
   gem "ruby-lsp"
 end
 
