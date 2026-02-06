@@ -6,10 +6,7 @@ gem "sinatra"
 gem "puma"
 
 gem "slim"
-gem "sassc"
 gem "rdiscount"
-
-gem "dalli"
 
 gem "logger"
 gem "ostruct"

@@ -14,18 +14,8 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    dalli (4.3.1)
-      logger
     diff-lcs (1.6.2)
     dotenv (3.2.0)
-    ffi (1.17.3-aarch64-linux-gnu)
-    ffi (1.17.3-aarch64-linux-musl)
-    ffi (1.17.3-arm-linux-gnu)
-    ffi (1.17.3-arm-linux-musl)
-    ffi (1.17.3-arm64-darwin)
-    ffi (1.17.3-x86_64-darwin)
-    ffi (1.17.3-x86_64-linux-gnu)
-    ffi (1.17.3-x86_64-linux-musl)
     foreman (0.90.0)
       thor (~> 1.4)
     json (2.18.1)
@@ -117,8 +107,6 @@ GEM
       rbs (>= 3, < 5)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
-    sassc (2.4.0)
-      ffi (~> 1.9)
     sinatra (4.2.1)
       logger (>= 1.6.0)
       mustermann (~> 3.0)
@@ -163,7 +151,6 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
-  dalli
   dotenv
   foreman
   logger
@@ -173,13 +160,12 @@ DEPENDENCIES
   rdiscount
   rspec
   ruby-lsp
-  sassc
   sinatra
   slim
   standard
 
 RUBY VERSION
-   ruby 4.0.1p0
+  ruby 4.0.1p0
 
 BUNDLED WITH
-   4.0.5
+  4.0.5
