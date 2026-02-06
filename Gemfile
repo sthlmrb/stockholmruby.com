@@ -6,17 +6,13 @@ gem "sinatra"
 gem "puma"
 
 gem "slim"
-gem "sassc"
 gem "rdiscount"
-
-gem "dalli"
 
 gem "logger"
 gem "ostruct"
 
 group :development do
   gem "standard", require: false
-  gem "foreman"
   gem "ruby-lsp"
 end
 

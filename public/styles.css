@@ -1,27 +1,25 @@
-$red: #c00;
-$light-red: lighten($red, 20%);
-$light-gray: #ddd;
-$dark-gray: #aaa;
-$hashtag-color: $dark-gray;
+:root {
+  --color-red: oklch(0.5308 0.2178 29.23);
+  --color-light-gray: oklch(0.8975 0 0);
+  --color-dark-gray: oklch(0.738 0 0);
 
-$xxsmall: 10px;
-$xsmall: 15px;
-$small: 16px;
-$medium: 18px;
-$large: 24px;
-$xlarge: 45px;
+  --color-hashtag: var(--color-dark-gray);
 
-@mixin small-text {
-  font-size: $xsmall;
-  font-weight: 700;
-  text-transform: uppercase;
+  --text-xxsmall: 10px;
+  --text-xsmall: 15px;
+  --text-small: 16px;
+
+  --text-medium: 18px;
+  --text-large: 24px;
+  --text-xlarge: 45px;
 }
 
 body {
   padding: 30px 10px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: $medium;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: var(--text-medium);
   font-weight: 400;
 }
 
@@ -32,13 +30,13 @@ body {
 
 a {
   text-decoration: none;
-  border-bottom: 1px solid $light-gray;
+  border-bottom: 1px solid var(--color-light-gray);
   &,
   &:visited {
-    color: $red;
+    color: var(--color-red);
   }
   &:hover {
-    border-color: $dark-gray;
+    border-color: var(--color-dark-gray);
   }
   &.image-link {
     border-bottom: none;
@@ -52,21 +50,25 @@ nav {
 
 .hashtag {
   margin-top: -5px;
-  @include small-text;
+  font-size: var(--text-xsmall);
+  font-weight: 700;
+  text-transform: uppercase;
 
   a {
     border-bottom: none;
-    color: $hashtag-color;
+    color: var(--color-hashtag);
     letter-spacing: 1px;
     &:hover {
-      color: darken($hashtag-color, 20%);
+      color: oklch(from currentColor calc(l - 0.2) c h);
     }
   }
 }
 
 nav {
-  @include small-text;
   margin: 20px 0;
+  font-size: var(--small);
+  font-weight: 700;
+  text-transform: uppercase;
 
   a {
     border-bottom: none;
@@ -74,7 +76,7 @@ nav {
     letter-spacing: 1px;
     padding: 10px;
     &:hover {
-      color: darken($red, 15%);
+      color: oklch(from currentColor calc(l - 0.15) c h);
     }
   }
 
@@ -94,7 +96,7 @@ nav {
 }
 
 h1 {
-  font-size: $xlarge;
+  font-size: var(--text-xlarge);
   font-weight: 700;
   letter-spacing: 1px;
   margin-top: -20px;
@@ -107,12 +109,12 @@ h3 {
 
 footer {
   text-align: center;
-  color: $dark-gray;
+  color: var(--color-dark-gray);
   a,
   a:visited {
     color: #777;
   }
-  font-size: $xsmall;
+  font-size: var(--text-xsmall);
 
   p {
     display: inline;
@@ -142,18 +144,18 @@ li {
 
 .about-us {
   .hero {
-    font-size: $large;
+    font-size: var(--text-large);
   }
 
   .details {
-    font-size: $small;
+    font-size: var(--small);
   }
 }
 
 .next-event {
   background: #f2f2f2;
   padding: 30px;
-  font-size: $small;
+  font-size: var(--text-small);
 
   // Don't mess up the box padding.
   h3 {
@@ -172,7 +174,7 @@ li {
   .event-time,
   .event-venue {
     margin: 0 10px;
-    color: $dark-gray;
+    color: var(--color-dark-gray);
   }
   .event-description {
     margin-top: 10px;
@@ -190,21 +192,21 @@ li {
     padding: 3px 5px;
   }
   .calendar-page-month {
-    background: $red;
+    background: var(--color-red);
     color: #fff;
     text-transform: uppercase;
-    font-size: $xxsmall;
+    font-size: var(--text-xxsmall);
   }
   .calendar-page-day {
     background: #fff;
-    font-size: $medium;
+    font-size: var(--text-medium);
   }
 }
 
 .more-events {
   text-align: center;
   h3 {
-    font-size: $medium;
+    font-size: var(--text-medium);
   }
   h3:nth-child(1) {
     opacity: 0.8;
@@ -232,11 +234,11 @@ li {
   }
 
   h2 {
-    font-size: $medium;
+    font-size: var(--text-medium);
   }
 
   h3 {
-    font-size: $small;
+    font-size: var(--text-small);
     margin: 0;
   }
 }
