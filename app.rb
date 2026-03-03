@@ -5,6 +5,11 @@ require_relative "meetup"
 Bundler.require :default, (ENV["RACK_ENV"] || "development").to_sym
 
 class StockholmRubySite < Sinatra::Application
+  configure :development do
+    register Sinatra::Reloader
+    also_reload "meetup.rb"
+  end
+
   set :static_cache_control, [:public, max_age: 3600]
 
   before do
