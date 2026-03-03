@@ -22,6 +22,7 @@ GEM
     logger (1.7.0)
     matrix (0.4.3)
     mini_mime (1.1.5)
+    multi_json (1.19.1)
     mustermann (3.0.4)
       ruby2_keywords (~> 0.0.1)
     nio4r (2.7.5)
@@ -112,6 +113,12 @@ GEM
       rack-protection (= 4.2.1)
       rack-session (>= 2.0.0, < 3)
       tilt (~> 2.0)
+    sinatra-contrib (4.2.1)
+      multi_json (>= 0.0.2)
+      mustermann (~> 3.0)
+      rack-protection (= 4.2.1)
+      sinatra (= 4.2.1)
+      tilt (~> 2.0)
     slim (5.2.1)
       temple (~> 0.10.0)
       tilt (>= 2.1.0)
@@ -157,6 +164,7 @@ DEPENDENCIES
   rspec
   ruby-lsp
   sinatra
+  sinatra-contrib
   slim
   standard
 
