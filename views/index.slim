@@ -8,24 +8,36 @@ section.about-us
 
 - if next_event
   section.events
-    .next-event
-      .calendar-page
-        .calendar-page-month= next_event.time.strftime("%b")
-        .calendar-page-day= next_event.time.strftime("%-d")
-      hgroup
-        h3.event-name
-          ' Next event:
-          a href=next_event.url
-            = next_event.name
-        span.event-time
-          = next_event.time.strftime("%A %B %-d at %H:%M")
+    article.next-event
+      header
+        .calendar-page
+            .calendar-page-month= next_event.time.strftime("%b")
+            .calendar-page-day= next_event.time.strftime("%-d")
+        hgroup
+          h2
+            'Next event
+          h3.event-name
+            a href=next_event.url
+              = next_event.name
 
-        '
-        span.event-venue
-          = next_event.venue_name
-          ' ,
-          = next_event.venue_address
-      .event-description== next_event.description
+      main
+        dl
+          dt When
+          dd
+            time.event-time
+                  = next_event.time.strftime("%A %B %-d at %H:%M")
+
+          dt Where
+          dd
+            span.event-venue= next_event.venue_name
+            ' ,
+            span.adress= next_event.venue_address
+
+        .event-description
+          == next_event.description
+
+      footer
+        a.event-cta href=next_event.url Register at the event page
 
     .more-events
 

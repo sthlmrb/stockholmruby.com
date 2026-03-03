@@ -152,42 +152,99 @@ li {
   }
 }
 
+.next-event header {
+  display: flex;
+  gap: 0 0.5rem;
+
+  h2 {
+    font-size: var(--text-small);
+  }
+
+  h3 {
+    font-size: var(--text-medium);
+  }
+
+  hgroup {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .next-event {
-  background: #f2f2f2;
-  padding: 30px;
+  background: oklch(0.97 0.01 29);
+  padding: 10px 15px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
   font-size: var(--text-small);
 
-  // Don't mess up the box padding.
+  h2 {
+    margin: 0;
+  }
+
+  /* Don't mess up the box padding.*/
   h3 {
     margin-top: 0;
   }
+
   .event-description :last-child {
     margin-bottom: 0;
   }
 
-  hgroup {
-    text-align: center;
-  }
   .event-name {
     margin-bottom: 10px;
   }
   .event-time,
   .event-venue {
-    margin: 0 10px;
-    color: var(--color-dark-gray);
+    margin: 0;
   }
   .event-description {
     margin-top: 10px;
     font-style: italic;
   }
+
+  dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2px 12px;
+    margin: 10px 0;
+
+    dt {
+      font-weight: bold;
+    }
+    dd {
+      margin: 0;
+    }
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 15px;
+    color: inherit;
+  }
+
+  .event-cta {
+    display: inline-block;
+    background: var(--color-red);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 4px;
+    border-bottom: none;
+    font-weight: 700;
+    font-size: var(--text-xsmall);
+    &, &:visited {
+      color: #fff;
+    }
+    &:hover {
+      background: oklch(from var(--color-red) calc(l - 0.05) c h);
+    }
+  }
 }
 
 .calendar-page {
   border: 1px solid #dedede;
-  width: 3em;
-  float: left;
-  margin: 5px;
+  width: 4em;
   text-align: center;
+  flex-direction: column;
+  align-self: flex-start;
   * {
     padding: 3px 5px;
   }
@@ -200,6 +257,7 @@ li {
   .calendar-page-day {
     background: #fff;
     font-size: var(--text-medium);
+    font-weight: bold;
   }
 }
 
